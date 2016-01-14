@@ -1,0 +1,107 @@
+package com.example.idiomsandphrases;
+
+import android.app.Activity;
+import android.content.Intent;
+import android.graphics.drawable.GradientDrawable;
+import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.view.KeyEvent;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.EditText;
+import android.widget.ListView;
+
+public class MainPageActivity extends Activity implements
+		AdapterView.OnItemClickListener, TextWatcher {
+	public static int adDispayCount = 0;
+	public static int adSkipCount = 0;
+	private ArrayAdapter<String> adaptor;
+	private Intent pendingIntent = null;
+	
+	private void launchPendingIntent() {
+		Intent localIntent = this.pendingIntent;
+		this.pendingIntent = null;
+		if (localIntent != null) {
+			startActivity(localIntent);
+		}
+		finish();
+	}
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		requestWindowFeature(1);
+		setContentView(R.layout.activity_main);
+		ListView localListView = (ListView) findViewById(R.id.mainlanguageList);
+		this.adaptor = new LanguagesListAdapter(this, R.id.langname,
+				IdiomsDataSource.getInstance(this).getLanguageNames());
+		
+		localListView.setAdapter(this.adaptor);
+		int[] arrayOfInt = { 0xFF000000, 0xFF000000, 0xFF000000 };
+		localListView.setDivider(new GradientDrawable(
+				GradientDrawable.Orientation.RIGHT_LEFT, arrayOfInt));
+		localListView.setDividerHeight(1);
+		localListView.setOnItemClickListener(this);
+		localListView.requestFocusFromTouch();
+		((EditText) findViewById(R.id.mainsearch)).addTextChangedListener(this);
+	}
+
+	@Override
+	public void beforeTextChanged(CharSequence s, int start, int count,
+			int after) {
+		
+	}
+
+	@Override
+	public void onTextChanged(CharSequence s, int start, int before, int count) {
+		
+	}
+
+	@Override
+	public void afterTextChanged(Editable s) {
+		this.adaptor.getFilter().filter(s.toString().trim());
+	}
+	
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		menu.clear();
+		MenuItem item = menu.add("Add New Language");
+		item.setIcon(R.drawable.add_icon);
+		menu.add("");
+		item.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+			
+			@Override
+			public boolean onMenuItemClick(MenuItem item) {
+				Intent localIntent = new Intent(MainPageActivity.this, AddLanguageActivity.class);
+				MainPageActivity.this.pendingIntent = localIntent;
+				MainPageActivity.this.launchPendingIntent();
+				MainPageActivity.this.finish();
+				return true;
+			}
+		});
+		return super.onCreateOptionsMenu(menu);
+	}
+
+	@Override
+	public void onItemClick(AdapterView<?> parent, View view, int position,
+			long id) {
+		Intent localIntent = new Intent(this, IdiomsCategoryListActivity.class);
+		localIntent.putExtra("langname", (String) this.adaptor.getItem(position));
+		this.pendingIntent = localIntent;
+		launchPendingIntent();
+		finish();
+	}
+	
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+		if(keyCode == KeyEvent.KEYCODE_BACK) {
+			finish();
+			return true;
+		}
+		return super.onKeyDown(keyCode, event);
+	}
+}

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="actionbar_background_start">#ff412d27</color>
+    <color name="actionbar_background_end">#ff966b5d</color>
+    <color name="activity_indicator_background">#55000000</color>
+</resources>

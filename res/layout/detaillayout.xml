@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@id/mainparent"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@id/adholder"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/mainbg"
+        android:orientation="vertical" >
+
+
+        <TextView
+            android:id="@id/page"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="3.0dip"
+            android:layout_weight="0.05"
+            android:text="Small Text"
+            android:textAppearance="?android:textAppearanceSmall"
+            android:textColor="#ff4e3e06" />
+
+        <android.support.v4.view.ViewPager
+            android:id="@id/awesomepager"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="5.0" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.1" >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_weight="1.0"
+                android:gravity="center_horizontal" >
+
+                <ImageView
+                    android:id="@id/previcon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="3.0dip"
+                    android:adjustViewBounds="true"
+                    android:background="@drawable/iconbg"
+                    android:maxHeight="64.0dip"
+                    android:maxWidth="64.0dip"
+                    android:padding="10.0dip"
+                    android:src="@drawable/ic_prev" />
+
+                <ImageView
+                    android:id="@id/randicon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="3.0dip"
+                    android:layout_marginLeft="40.0dip"
+                    android:layout_marginRight="40.0dip"
+                    android:adjustViewBounds="true"
+                    android:background="@drawable/iconbg"
+                    android:maxHeight="64.0dip"
+                    android:maxWidth="64.0dip"
+                    android:padding="10.0dip"
+                    android:src="@drawable/ic_rand" />
+
+                <ImageView
+                    android:id="@id/nexticon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="3.0dip"
+                    android:adjustViewBounds="true"
+                    android:background="@drawable/iconbg"
+                    android:maxHeight="64.0dip"
+                    android:maxWidth="64.0dip"
+                    android:padding="10.0dip"
+                    android:src="@drawable/ic_next" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

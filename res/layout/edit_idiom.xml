@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/editidiomparent"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/mainbg"
+        android:orientation="vertical" >
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Idiom" 
+            android:layout_margin="5.0dip"
+            android:gravity="bottom"
+            />
+
+        <EditText
+            android:id="@+id/editidiomedit"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5.0dip"
+            android:ems="10"
+            android:hint="Idiom" >
+
+            <requestFocus />
+        </EditText>
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="bottom"
+            android:layout_margin="5.0dip"
+            android:text="Meaning" />
+
+        <EditText
+            android:id="@+id/editidiommeaningedit"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5.0dip"
+            android:ems="10"
+            android:hint="Meaning" >
+        </EditText>
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5.0dip"
+            android:gravity="bottom"
+            android:text="Example" />
+
+        <EditText
+            android:id="@+id/editidiomexampleedit"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5.0dip"
+            android:ems="10"
+            android:hint="Example" >
+        </EditText>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/editidiomcancelbutton"
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                android:ems="10"
+                android:text="Cancel" />
+
+            <Button
+                android:id="@+id/editidiomsavebutton"
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                android:ems="10"
+                android:text="Save" />
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

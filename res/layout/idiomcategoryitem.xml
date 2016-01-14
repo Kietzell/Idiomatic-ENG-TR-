@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@id/categoryitemlayout"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <ImageView
+        android:id="@id/icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="5.0dip"
+        android:adjustViewBounds="true"
+        android:maxHeight="30.0dip"
+        android:maxWidth="30.0dip"
+        android:src="@drawable/ic_book" />
+
+    <TextView
+        android:id="@id/categoryname"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="false"
+        android:layout_alignParentTop="false"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="5.0dip"
+        android:layout_marginRight="5.0dip"
+        android:layout_toLeftOf="@id/categoryitemcount"
+        android:layout_toRightOf="@id/icon"
+        android:gravity="center_vertical"
+        android:minHeight="50.0dip"
+        android:paddingLeft="3.0dip"
+        android:text="test"
+        android:textAppearance="?android:textAppearanceLarge"
+        android:textColor="#ff202020"
+        android:textSize="18.0sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@id/categoryitemcount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="false"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="5.0dip"
+        android:background="@drawable/greyrect"
+        android:gravity="center_horizontal"
+        android:minWidth="40.0dip"
+        android:padding="3.0dip"
+        android:text="9999"
+        android:textColor="#ff330000"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@id/description"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/categoryname"
+        android:layout_below="@id/categoryname"
+        android:layout_marginLeft="5.0dip"
+        android:layout_marginRight="10.0dip"
+        android:text="Small Text"
+        android:textAppearance="?android:textAppearanceSmall"
+        android:textColor="#ff330000"
+        android:visibility="gone" />
+
+</RelativeLayout>
